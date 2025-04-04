@@ -30,21 +30,6 @@ images.forEach(img => {
     img.addEventListener("click", configurarImage); // Agregar el evento correctamente
 });
 
-images[0].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
-images[1].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
-images[2].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
 btnCerrar.addEventListener("click", function() {
     modal.style.display = "none";
 });
@@ -55,4 +40,26 @@ modal.addEventListener("click", function(event){
     }
 });
 
-// Fin
+
+/// Sistema de calificacion 
+const estrellas_gato_negro = document.querySelectorAll(".calificaciones-gato-negro .estrellas .estrella");
+const estrellas_gato_amarillo = document.querySelectorAll(".calificaciones-gato-amarillo .estrellas .estrella");
+const estrellas_gato_rayado = document.querySelectorAll(".calificaciones-gato-rayado .estrellas .estrella");
+
+estrellas_gato_negro.forEach(estrella => {
+    estrella.addEventListener("click", function() {
+        console.log('Click en estrella del gato negro');
+    })
+});
+// esto es lo mismo que hacer esto otro
+
+// estrellas_gato_negro.forEach(llamarFuncion);
+
+// function llamarFuncion(estrella) {
+    
+// }
+
+/***
+ *  ===================== TAREA ================
+ *  Completar para los otros gatos y ver como puedo cambiar el color de la estrella
+ */

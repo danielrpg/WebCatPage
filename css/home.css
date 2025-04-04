@@ -73,7 +73,25 @@ nav ul li a {
             p {
                 color: #555;
                 font-size: 1rem;
-            } 
+            }
+            
+            .calificaciones-gato-negro, 
+            .calificaciones-gato-amarillo,
+            .calificaciones-gato-rayado {
+                text-align: center;
+                margin-top: 10px;
+                .estrellas {
+                    .estrella{
+                        color: #CCC;
+                        font-size: 2rem;
+                    }
+                    .estrella:hover,
+                    .estrella.active {
+                        color: #FFD700;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }
