@@ -87,7 +87,7 @@ nav ul li a {
                     }
                     .estrella:hover,
                     .estrella.active {
-                        color: #FFD700;
+                        color: yellow;
                         cursor: pointer;
                     }
                 }

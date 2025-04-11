@@ -46,20 +46,43 @@ const estrellas_gato_negro = document.querySelectorAll(".calificaciones-gato-neg
 const estrellas_gato_amarillo = document.querySelectorAll(".calificaciones-gato-amarillo .estrellas .estrella");
 const estrellas_gato_rayado = document.querySelectorAll(".calificaciones-gato-rayado .estrellas .estrella");
 
-estrellas_gato_negro.forEach(estrella => {
+estrellas_gato_negro.forEach((estrella, indice) => {
     estrella.addEventListener("click", function() {
-        console.log('Click en estrella del gato negro');
+        // Borrar todo
+        estrellas_gato_negro.forEach(estrella => {
+            estrella.classList.remove('active');
+        });
+        //Volviendo a marcar todo hasta el que hemos hecho click
+        for (let i = 0; i <= indice; i++) {
+            estrellas_gato_negro[i].classList.add('active');
+        }
+
+        estrella.classList.add("active");
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoNegro', calificacion); // se guarda en la base de datos
+        console.log(`Calificacion para gato negro: ${calificacion} estrellas`);
+
     })
 });
-// esto es lo mismo que hacer esto otro
 
-// estrellas_gato_negro.forEach(llamarFuncion);
+estrellas_gato_amarillo.forEach((estrella, indice) => {
+    estrella.addEventListener("click", function() {
+        estrella.classList.add("active");
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoAmarillo', calificacion);
+        console.log(`Calificacion para gato amarillo: ${calificacion} estrellas`);
+    })
+});
 
-// function llamarFuncion(estrella) {
-    
-// }
+estrellas_gato_rayado.forEach((estrella, indice) => {
+    estrella.addEventListener("click", function() {
+        estrella.classList.add("active");
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoRayado', calificacion);
+        console.log(`Calificacion para gato rayado: ${calificacion} estrellas`);
+    })
+});
 
-/***
- *  ===================== TAREA ================
- *  Completar para los otros gatos y ver como puedo cambiar el color de la estrella
+/**
+ * Hacer que los otros dos gatos hagan los mismo con las estrellas, lo mismo que se hace en el gato negro
  */
