@@ -52,7 +52,7 @@ estrellas_gato_negro.forEach((estrella, indice) => {
         estrellas_gato_negro.forEach(estrella => {
             estrella.classList.remove('active');
         });
-        //Volviendo a marcar todo hasta el que hemos hecho click
+        //Volviendo a marcar todo hasta la estrella que hemos hecho click
         for (let i = 0; i <= indice; i++) {
             estrellas_gato_negro[i].classList.add('active');
         }
@@ -67,6 +67,16 @@ estrellas_gato_negro.forEach((estrella, indice) => {
 
 estrellas_gato_amarillo.forEach((estrella, indice) => {
     estrella.addEventListener("click", function() {
+        // Borrar todo
+        estrellas_gato_amarillo.forEach(estrella => {
+            estrella.classList.remove('active');
+        });
+
+        //Volviendo a marcar todo hasta la estrella que hemos hecho click
+        for (let i = 0; i <= indice; i++) {
+            estrellas_gato_amarillo[i].classList.add('active');
+        }
+        
         estrella.classList.add("active");
         const calificacion = indice + 1;
         localStorage.setItem('gatoAmarillo', calificacion);
@@ -83,6 +93,3 @@ estrellas_gato_rayado.forEach((estrella, indice) => {
     })
 });
 
-/**
- * Hacer que los otros dos gatos hagan los mismo con las estrellas, lo mismo que se hace en el gato negro
- */
