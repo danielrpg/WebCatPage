@@ -30,21 +30,6 @@ images.forEach(img => {
     img.addEventListener("click", configurarImage); // Agregar el evento correctamente
 });
 
-images[0].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
-images[1].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
-images[2].addEventListener("click", function() {
-modal.style.display = "flex";
-modalImage.src = this.src;
-});
-
 btnCerrar.addEventListener("click", function() {
     modal.style.display = "none";
 });
@@ -55,4 +40,64 @@ modal.addEventListener("click", function(event){
     }
 });
 
-// Fin
+
+/// Sistema de calificacion 
+const estrellas_gato_negro = document.querySelectorAll(".calificaciones-gato-negro .estrellas .estrella");
+const estrellas_gato_amarillo = document.querySelectorAll(".calificaciones-gato-amarillo .estrellas .estrella");
+const estrellas_gato_rayado = document.querySelectorAll(".calificaciones-gato-rayado .estrellas .estrella");
+
+estrellas_gato_negro.forEach((estrella, indice) => {
+    estrella.addEventListener("click", function() {
+        // Borrar todo
+        estrellas_gato_negro.forEach(estrella => {
+            estrella.classList.remove('active');
+        });
+        //Volviendo a marcar todo hasta la estrella que hemos hecho click
+        for (let i = 0; i <= indice; i++) {
+            estrellas_gato_negro[i].classList.add('active');
+        }
+
+        estrella.classList.add("active");
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoNegro', calificacion); // se guarda en la base de datos
+        console.log(`Calificacion para gato negro: ${calificacion} estrellas`);
+
+    })
+});
+
+estrellas_gato_amarillo.forEach((estrella, indice) => {
+    estrella.addEventListener("click", function() {
+        // Borrar todo
+        estrellas_gato_amarillo.forEach(estrella => {
+            estrella.classList.remove('active');
+        });
+
+        //Volviendo a marcar todo hasta la estrella que hemos hecho click
+        for (let i = 0; i <= indice; i++) {
+            estrellas_gato_amarillo[i].classList.add('active');
+        }
+        
+        estrella.classList.add("active");
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoAmarillo', calificacion);
+        console.log(`Calificacion para gato amarillo: ${calificacion} estrellas`);
+    })
+});
+
+estrellas_gato_rayado.forEach((estrella, indice) => {
+    estrella.addEventListener("click", function () {
+        // Borrar todo
+        estrellas_gato_rayado.forEach(estrella => {
+            estrella.classList.remove('active');
+        });
+
+        // Volver a marcar hasta la estrella clickeada
+        for (let i = 0; i <= indice; i++) {
+            estrellas_gato_rayado[i].classList.add('active');
+        }
+
+        const calificacion = indice + 1;
+        localStorage.setItem('gatoRayado', calificacion);
+        console.log(`Calificación para gato rayado: ${calificacion} estrellas`);
+    });
+});

@@ -73,10 +73,107 @@ nav ul li a {
             p {
                 color: #555;
                 font-size: 1rem;
-            } 
+            }
+            
+            .calificaciones-gato-negro, 
+            .calificaciones-gato-amarillo,
+            .calificaciones-gato-rayado {
+                text-align: center;
+                margin-top: 10px;
+                .estrellas {
+                    .estrella{
+                        color: #CCC;
+                        font-size: 2rem;
+                    }
+                    .estrella:hover,
+                    .estrella.active {
+                        color: yellow;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }
+
+.informacion {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .informacion-contenido {
+        display: flex;
+        .informacion-text-btn {
+            h1 {
+                font-size: 2rem;
+            }
+    
+            p {
+                color: #555;
+                font-size: 1rem;
+            }
+
+            .botones {
+                .btn-primario {
+                    background-color: #000;
+                    color: white;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 8px;
+                    font-weight: 700;
+                    text-decoration: none;
+                    border: 0;
+                }
+                }
+
+                .btn-secundario {
+                    .btn-secundario {
+                        background-color: transparent;
+                        color: #000;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 8px;
+                        font-weight: 700;
+                        text-decoration: none;
+                        border: 2px solid #000;
+                        margin-left: 10px;
+                        transition: background-color 0.3s ease;
+                    }
+                    
+                    .btn-secundario:hover {
+                        background-color: #000;
+                        color: #fff;
+                    }                    
+
+                }
+            }
+        }
+
+        .imagen-gato-info {
+            .informacion-contenido {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .informacion-text-btn {
+                flex: 1 1 50%;
+            }
+            
+            .imagen-gato-info {
+                flex: 1 1 40%;
+            }
+            
+            .imagen-gato-info img {
+                width: 100%;
+                border-radius: 12px;
+                object-fit: cover;
+            }            
+
+        }
+
+    }
+
 
 .modal {
     display: none;
