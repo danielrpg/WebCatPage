@@ -23,6 +23,39 @@ body {
             text-decoration: none;
             font-size: 16px;
         }
+
+        .menu-icon {
+            cursor: pointer;
+            flex-direction: column;
+            display: none;
+        }
+/**
+* Tarea opcional, resolver el por que el menu aparece en ese lado corregir el error
+*/
+        @media screen and (max-width: 700px) {
+            .menu {
+                display: none;
+                position: absolute;
+                z-index: 1000;
+
+                ul {
+                    display: block;
+                    padding: 0;
+                }
+            } 
+
+            .menu.active {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+            }
+
+            
+
+            .menu-icon {
+                display: flex;
+            }
+        }
     }
 
     main {
