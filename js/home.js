@@ -1,3 +1,15 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-icon');
+    
+    menuToggle.addEventListener('click', function() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    });
+});
+
+
+
 const imageCache = new Map(); // Crear un almacén temporal de imágenes
 
 function loadImage(url) {
