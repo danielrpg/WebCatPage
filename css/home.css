@@ -1,15 +1,29 @@
 body {
     font-family: Inter, sans-serif;
-    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-    
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
+        position: relative;
+        z-index: 1000;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         .logo {
-            font-size: 20px; 
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .menu {
+            position: relative;
+            z-index: 1000;
         }
 
         nav ul {
@@ -17,40 +31,132 @@ body {
             display: flex;
             gap: 25px;
             padding: 0;
+            margin: 0;
+
+            li {
+                position: relative;
+            }
         }
-        
+
         nav ul li a {
             text-decoration: none;
             font-size: 16px;
+            color: #333;
+            display: block;
+            padding: 10px 0;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        .tiene-submenu>a::after {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 0.5rem;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 100;
+            border-radius: 2px;
+
+            li {
+                width: 100%;
+
+                a {
+                    padding: 10px 15px;
+                }
+            }
+        }
+
+        .tiene-submenu:hover .submenu {
+            display: block;
         }
 
         .menu-icon {
             cursor: pointer;
             flex-direction: column;
             display: none;
+            font-size: 1.5rem;
         }
-/**
-* Tarea opcional, resolver el por que el menu aparece en ese lado corregir el error
-*/
+
         @media screen and (max-width: 700px) {
             .menu {
                 display: none;
                 position: absolute;
                 z-index: 1000;
-
-                ul {
-                    display: block;
-                    padding: 0;
-                }
-            } 
-
-            .menu.active {
-                display: flex;
-                flex-direction: column;
-                position: relative;
+                top: 100%;
+                left: 0;
+                right: 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                width: 100%;
             }
 
-            
+            .menu.active {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                width: 100%;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+
+            nav ul li a {
+                padding: 15px;
+                display: block;
+                width: 100%;
+            }
+
+            .tiene-submenu>a::after {
+                content: '▼';
+                font-size: 0.7em;
+                float: right;
+                margin-right: 10px;
+                margin-top: 5px;
+            }
+
+            .tiene-submenu>a.active::after {
+                content: '▲';
+            }
+
+            .submenu {
+                position: static !important;
+                display: none;
+                box-shadow: none;
+                width: 100%;
+                background-color: #f9f9f9;
+                padding-left: 20px !important;
+            }
+
+            .submenu.active {
+                display: block;
+                position: static !important;
+            }
+
+            .submenu li {
+                border-bottom: none;
+            }
 
             .menu-icon {
                 display: flex;
@@ -63,13 +169,16 @@ body {
             h1 {
                 text-align: left;
                 padding-left: 20px;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
             }
-        
+
             p {
                 text-align: left;
                 padding-left: 20px;
+                margin-bottom: 2rem;
             }
-        
+
             .imagen-gato {
                 display: flex;
                 flex-direction: column;
@@ -79,52 +188,66 @@ body {
                 width: 100%;
                 height: auto;
                 display: block;
-                border-radius: 12px; 
+                border-radius: 12px;
             }
         }
 
         .galeria {
             margin: 0 auto;
             max-width: 1200px;
+            padding: 3rem 5%;
+
             h1 {
                 font-size: 2rem;
+                margin-bottom: 2rem;
             }
-            
+
             .cards {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 32px;
-        
+
                 .card {
                     padding: 15px;
-        
+                    background-color: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                    }
+
                     img {
                         width: 100%;
                         height: auto;
                         display: block;
                         border-radius: 12px;
+                        cursor: pointer;
                     }
-        
+
                     h2 {
                         margin-top: 10px;
                         font-size: 1.2rem;
                     }
-                    
+
                     p {
                         color: #555;
                         font-size: 1rem;
                     }
-                    
-                    .calificaciones-gato-negro, 
+
+                    .calificaciones-gato-negro,
                     .calificaciones-gato-amarillo,
                     .calificaciones-gato-rayado {
                         text-align: center;
                         margin-top: 10px;
+
                         .estrellas {
-                            .estrella{
+                            .estrella {
                                 color: #CCC;
                                 font-size: 2rem;
                             }
+
                             .estrella:hover,
                             .estrella.active {
                                 color: yellow;
@@ -140,27 +263,36 @@ body {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-        
+
             .informacion-contenido {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 2rem;
                 align-items: center;
                 justify-content: space-between;
-        
+
                 .informacion-text-btn {
                     h1 {
                         font-size: 2rem;
+                        margin-bottom: 1.5rem;
                     }
-            
+
+                    h2 {
+                        margin-top: 1rem;
+                        margin-bottom: 0.5rem;
+                        font-size: 1.5rem;
+                    }
+
                     p {
                         color: #555;
                         font-size: 1rem;
                     }
-        
+
                     .botones {
                         display: flex;
                         gap: 1rem;
+                        margin-top: 1.5rem;
+
                         .btn-primario {
                             background-color: #000;
                             color: white;
@@ -169,8 +301,9 @@ body {
                             font-weight: 700;
                             text-decoration: none;
                             border: 0;
+                            cursor: pointer;
                         }
-        
+
                         .btn-secundario {
                             background-color: #E6E6E6;
                             color: #000;
@@ -179,14 +312,15 @@ body {
                             font-weight: 700;
                             text-decoration: none;
                             border: 1px solid #E6E6E6;
+                            cursor: pointer;
                         }
-                        
+
                         .btn-secundario:hover {
                             background-color: #000;
                             color: #fff;
-                        }   
+                        }
                     }
-                    
+
                 }
 
                 .imagen-gato-info {
@@ -194,7 +328,7 @@ body {
                     width: 100%;
                     height: auto;
                 }
-                
+
                 .imagen-gato-info img {
                     max-width: 100%;
                     width: 100%;
@@ -203,48 +337,319 @@ body {
                     border-radius: 12px;
                     display: block;
                 }
-                
-        
+            }
+        }
+
+        .comida-gatos {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .comida-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+
+                .comida-card {
+                    background-color: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                    img {
+                        width: 100%;
+                        height: 180px;
+                        object-fit: cover;
+                    }
+
+                    h3 {
+                        padding: 1rem 1rem 0.5rem;
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+                        padding: 0 1rem 1rem;
+                        font-size: 0.9rem;
+                        color: #555;
+                    }
+                }
+            }
+        }
+
+        .comentarios {
+            padding: 3rem 5%;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .comentarios-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                margin-bottom: 2rem;
+
+                .comentario {
+                    background-color: #fff;
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                    p {
+                        font-style: italic;
+                        margin-bottom: 1rem;
+                    }
+
+                    .usuario {
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            margin-right: 1rem;
+                        }
+
+                        span {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .tabla-calificaciones {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 2rem;
+                background-color: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                th,
+                td {
+                    padding: 1rem;
+                    text-align: center;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                th {
+                    background-color: #f1f1f1;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .comida-gatos {
+            padding: 3rem 5%;
+        }
+
+        .comida-gatos h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .comida-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .comida-card {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .comida-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .comida-card h3 {
+            padding: 1rem 1rem 0.5rem;
+        }
+
+        .comida-card p {
+            padding: 0 1rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .comentarios {
+            padding: 3rem 5%;
+            background-color: var(--light-gray);
+        }
+
+        .comentarios h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .comentarios-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .comentario {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .comentario p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .usuario {
+            display: flex;
+            align-items: center;
+        }
+
+        .usuario img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .usuario span {
+            font-weight: 600;
+        }
+
+        .tabla-calificaciones {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .tabla-calificaciones th,
+        .tabla-calificaciones td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabla-calificaciones th {
+            background-color: #f1f1f1;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-contenido {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .informacion-contenido {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .menu.active {
+                display: block;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .menu li {
+                margin: 0.5rem 1rem;
+            }
+
+            .submenu {
+                position: static;
+                box-shadow: none;
+                padding: 0.5rem 0 0.5rem 1rem;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .cards,
+            .comida-cards,
+            .comentarios-container {
+                grid-template-columns: 1fr;
             }
         }
     }
-
-    .modal {
-        display: none;
-        z-index: 1000;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-    
-        .modal-contenido {
-            max-width: 80%;
-            max-height: 80%;
-            background-color: white;
-            border-radius: 10px;
-        }
-    
-        .cerrar {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
-    }
 }
-
-
-
-
-
-
-
-
-
-

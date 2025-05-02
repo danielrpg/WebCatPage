@@ -16,11 +16,28 @@
         <nav class="menu">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li>
-                    <a href="about.html">Información</a>
+                <li class="tiene-submenu">
+                    <a href="#">Información</a>
+                    <ul class="submenu">
+                        <li><a href="about.html">Sobre nosotros</a></li>
+                        <li><a href="team.html">Nuestro equipo</a></li>
+                        <li><a href="history.html">Historia</a></li>
+                    </ul>
                 </li>
-                <li><a href="index.html">Precios</a></li>
-                <li><a href="about.html">Productos</a></li>
+                <li class="tiene-submenu">
+                    <a href="#">Precios</a>
+                    <ul class="submenu">
+                        <li><a href="pricing.html">Planes</a></li>
+                        <li><a href="discounts.html">Descuentos</a></li>
+                    </ul>
+                </li>
+                <li class="tiene-submenu">
+                    <a href="#">Productos</a>
+                    <ul class="submenu">
+                        <li><a href="accessories.html">Accesorios</a></li>
+                        <li><a href="food.html">Comida</a></li>
+                    </ul>
+                </li>
                 <li><a href="contact.html">Contactanos</a></li>
             </ul>
         </nav>
@@ -42,8 +59,8 @@
                     <img src="./images/gato_negro.jpg" alt="Gato Negro">
                     <h2>Bob</h2>
                     <p>
-                        Body text for whatever you’d like to add more to the subheading.
-                        Body text for whatever you’d like to add more to the subheading.
+                        Body text for whatever you'd like to add more to the subheading.
+                        Body text for whatever you'd like to add more to the subheading.
                     </p>
                     <div class="calificaciones-gato-negro">
                         <div class="estrellas">
@@ -58,7 +75,7 @@
                 <div class="card">
                     <img src="./images/gato_amarillo.jpg" alt="Gato Amarillo">
                     <h2>Bob</h2>
-                    <p>Body text for whatever you’d like to add more to the subheading. </p>
+                    <p>Body text for whatever you'd like to add more to the subheading. </p>
                     <div class="calificaciones-gato-amarillo">
                         <div class="estrellas">
                             <span class="estrella">★</span>
@@ -72,7 +89,7 @@
                 <div class="card">
                     <img src="./images/gato_rayado.jpg" alt="Gato Rayado">
                     <h2>Bob</h2>
-                    <p>Body text for whatever you’d like to add more to the subheading. </p>
+                    <p>Body text for whatever you'd like to add more to the subheading. </p>
                     <div class="calificaciones-gato-rayado">
                         <div class="estrellas">
                             <span class="estrella">★</span>
@@ -90,13 +107,16 @@
                 <div class="informacion-text-btn">
                     <h1>Información</h1>
                     <h2>Subheading</h2>
-                    <p>Subheading that sets up context, shares more info about the website, or generally gets people psyched to
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to
                         keep scrolling. </p>
                     <h2>Subheading2</h2>
-                    <p>Subheading that sets up context, shares more info about the website, or generally gets people psyched to
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to
                         keep scrolling. </p>
                     <h2>Subheading3</h2>
-                    <p>Subheading that sets up context, shares more info about the website, or generally gets people psyched to
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to
                         keep scrolling. </p>
                     <div class="botones">
                         <button class="btn-primario" id="btn-gato">Button</button>
@@ -108,11 +128,117 @@
                 </div>
             </div>
         </section>
+
+        <!-- New Section for Cat Food -->
+        <section class="comida-gatos">
+            <h1>Comida para gatos</h1>
+            <div class="comida-cards">
+                <div class="comida-card">
+                    <img src="./images/comida_gato1.jpg" alt="Comida para Gatos 1">
+                    <h3>Subheading</h3>
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to keep scrolling.</p>
+                </div>
+                <div class="comida-card">
+                    <img src="./images/comida_gato2.jpg" alt="Comida para Gatos 2">
+                    <h3>Subheading</h3>
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to keep scrolling.</p>
+                </div>
+                <div class="comida-card">
+                    <img src="./images/comida_gato3.jpg" alt="Comida para Gatos 3">
+                    <h3>Subheading</h3>
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to keep scrolling.</p>
+                </div>
+                <div class="comida-card">
+                    <img src="./images/comida_gato4.jpg" alt="Comida para Gatos 4">
+                    <h3>Subheading</h3>
+                    <p>Subheading that sets up context, shares more info about the website, or generally gets people
+                        psyched to keep scrolling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section for Comments -->
+        <section class="comentarios">
+            <h1>Comentarios</h1>
+            <div class="comentarios-container">
+                <div class="comentario">
+                    <p>"The first piece of content"</p>
+                    <div class="usuario">
+                        <img src="./images/usuario1.jpg" alt="Usuario 1">
+                        <span>Usuario1</span>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <p>"A fantastic UI of feedback!"</p>
+                    <div class="usuario">
+                        <img src="./images/usuario2.jpg" alt="Usuario 2">
+                        <span>Usuario2</span>
+                    </div>
+                </div>
+                <div class="comentario">
+                    <p>"A seriously perfect review!"</p>
+                    <div class="usuario">
+                        <img src="./images/usuario3.jpg" alt="Usuario 3">
+                        <span>Usuario3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ratings Table -->
+            <table class="tabla-calificaciones">
+                <thead>
+                    <tr>
+                        <th>Cat Name</th>
+                        <th>Fluffiness</th>
+                        <th>Playfulness</th>
+                        <th>Cuteness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bob</td>
+                        <td>★★★★★</td>
+                        <td>★★★★☆</td>
+                        <td>★★★★★</td>
+                    </tr>
+                    <tr>
+                        <td>Mittens</td>
+                        <td>★★★☆☆</td>
+                        <td>★★★★★</td>
+                        <td>★★★★☆</td>
+                    </tr>
+                    <tr>
+                        <td>Whiskers</td>
+                        <td>★★★★☆</td>
+                        <td>★★★☆☆</td>
+                        <td>★★★★★</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 WebCat. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Modal for Image Previews -->
     <div id="imagen-modal" class="modal">
-        <span class="cerrar" id="btn-cerrar">X</span>
+        <span class="cerrar" id="btn-cerrar">×</span>
         <img class="modal-contenido" id="modal-img">
     </div>
+
     <script src="./js/home.js"></script>
 </body>
 
