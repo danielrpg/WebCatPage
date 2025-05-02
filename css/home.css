@@ -17,13 +17,7 @@ body {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .menu {
-            position: relative;
-            z-index: 1000;
+            font-size: 20px; 
         }
 
         nav ul {
@@ -87,10 +81,18 @@ body {
             font-size: 1.5rem;
         }
 
+
         @media screen and (max-width: 700px) {
             .menu {
                 display: none;
+                flex-direction: column;
                 position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
                 top: 100%;
                 left: 0;
@@ -160,6 +162,8 @@ body {
 
             .menu-icon {
                 display: flex;
+                flex-direction: column;
+                gap: 4px;
             }
         }
     }
@@ -173,11 +177,13 @@ body {
                 margin-bottom: 1rem;
             }
 
+
             p {
                 text-align: left;
                 padding-left: 20px;
                 margin-bottom: 2rem;
             }
+
 
             .imagen-gato {
                 display: flex;
@@ -188,6 +194,7 @@ body {
                 width: 100%;
                 height: auto;
                 display: block;
+                border-radius: 12px;
                 border-radius: 12px;
             }
         }
@@ -202,10 +209,12 @@ body {
                 margin-bottom: 2rem;
             }
 
+
             .cards {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 32px;
+
 
                 .card {
                     padding: 15px;
@@ -226,10 +235,12 @@ body {
                         cursor: pointer;
                     }
 
+
                     h2 {
                         margin-top: 10px;
                         font-size: 1.2rem;
                     }
+
 
                     p {
                         color: #555;
@@ -237,16 +248,21 @@ body {
                     }
 
                     .calificaciones-gato-negro,
+
+                    .calificaciones-gato-negro,
                     .calificaciones-gato-amarillo,
                     .calificaciones-gato-rayado {
                         text-align: center;
                         margin-top: 10px;
 
+
                         .estrellas {
+                            .estrella {
                             .estrella {
                                 color: #CCC;
                                 font-size: 2rem;
                             }
+
 
                             .estrella:hover,
                             .estrella.active {
@@ -264,12 +280,14 @@ body {
             max-width: 1200px;
             margin: 0 auto;
 
+
             .informacion-contenido {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 2rem;
                 align-items: center;
                 justify-content: space-between;
+
 
                 .informacion-text-btn {
                     h1 {
@@ -283,10 +301,12 @@ body {
                         font-size: 1.5rem;
                     }
 
+
                     p {
                         color: #555;
                         font-size: 1rem;
                     }
+
 
                     .botones {
                         display: flex;
@@ -304,6 +324,7 @@ body {
                             cursor: pointer;
                         }
 
+
                         .btn-secundario {
                             background-color: #E6E6E6;
                             color: #000;
@@ -315,9 +336,11 @@ body {
                             cursor: pointer;
                         }
 
+
                         .btn-secundario:hover {
                             background-color: #000;
                             color: #fff;
+                        }
                         }
                     }
 
@@ -328,6 +351,7 @@ body {
                     width: 100%;
                     height: auto;
                 }
+
 
                 .imagen-gato-info img {
                     max-width: 100%;
@@ -594,6 +618,7 @@ body {
             max-width: 80%;
             max-height: 80%;
         }
+
 
         .cerrar {
             position: absolute;
